@@ -12,17 +12,17 @@ public class Main {
         int hasta = 99999;
         int cantNum = 60;
 
-        GenCuadMedios genNumPseudo = new GenCuadMedios(desde, hasta, cantNum);
+        //GenCuadMedios genNumPseudo = new GenCuadMedios(desde, hasta, cantNum);
         
         //genNumPseudo.generarNumeros();
-        genNumPseudo.evaluarNumeros();
+        //genNumPseudo.evaluarNumeros();
 
-        GenVariables genVariables = new GenVariables(cantNum, genNumPseudo.getSemillasAprobadas());
+        //GenVariables genVariables = new GenVariables(cantNum, genNumPseudo.getSemillasAprobadas());
         
         //genVariables.generarVariables();
-        genVariables.calcularPromedios();
+        //genVariables.calGenPromedios();
 
-        Montecarlo metodo = new Montecarlo(genVariables.getPromedios());
+        Montecarlo metodo = new Montecarlo();
 
         metodo.metodoMontecarlo();
 

@@ -1,19 +1,27 @@
 package clases;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GenVariables {
 
     private int cantNum;
+    private int cantProm;
     private ArrayList<Integer> semillasAprob;
     private double[] variables;
     private double[] promedios;
 
     public GenVariables(int cantNum, ArrayList<Integer> semillasAprob){
+
         this.cantNum = cantNum;
+        cantProm = semillasAprob.size();
         this.semillasAprob = semillasAprob;
         variables = new double[cantNum];
-        promedios = new double[semillasAprob.size()];
+        promedios = new double[cantProm];
+
     }
 
     public void generarVariables(){
@@ -48,7 +56,17 @@ public class GenVariables {
 
     }
 
-    public void calcularPromedios(){
+    public void calGenPromedios(){
+
+        File archivo = new File("promedios.txt");
+
+        archivo.delete();
+
+        try {
+            archivo.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         for (int i = 0; i < semillasAprob.size(); i++) {
             
@@ -71,10 +89,27 @@ public class GenVariables {
 
             promedios[i] = suma/cantNum;
 
+            try {
+
+                BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo,true));
+
+                escritor.write(String.valueOf(promedios[i]));
+
+                if (i < cantProm-1) 
+                    escritor.newLine();
+
+                escritor.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
 
     }
 
-    public double[] getPromedios(){return promedios;}
+    public int getCantProm(){
+        return cantProm;
+    }
     
 }

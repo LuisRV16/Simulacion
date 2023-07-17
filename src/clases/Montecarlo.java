@@ -1,21 +1,46 @@
 package clases;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Montecarlo {
-    
-    private double[] promedios;
+
     private double[][] metMontecarlo;
 
-    public Montecarlo(double[] promedios){
-
-        this.promedios = promedios;
-        
-        Arrays.sort(promedios);
-
-    }
-
     public void metodoMontecarlo(){
+
+        ArrayList<Double> proms = new ArrayList<>();
+
+        File archivo = new File("promedios.txt");
+
+        try (BufferedReader lector = new BufferedReader(new FileReader(archivo))) {
+
+            String line = lector.readLine();
+
+            while (line!=null) {
+
+                proms.add(Double.parseDouble(line));
+
+                line = lector.readLine();
+                
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Object[] aux = proms.toArray();
+
+        double[] promedios = new double[aux.length];
+
+        for (int i = 0; i < aux.length; i++)
+            promedios[i] = (double)aux[i];
+
+        Arrays.sort(promedios);
 
         double menor = promedios[0];
 

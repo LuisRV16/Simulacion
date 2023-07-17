@@ -3,15 +3,15 @@ package aplicaciones;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import gui.FramePreSimulacion;
+import gui.FrameSimulacion;
 
 public class AplicacionSimulacion {
     
     public static void main(String[] args) {
         
-        JFrame frame = new FramePreSimulacion();
+        JFrame frame = new FrameSimulacion();
 
-        frame.setSize(700, 500);
+        frame.setSize(1280, 700);
         frame.setVisible(true);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);

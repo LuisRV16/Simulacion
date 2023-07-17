@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import clases.Animacion;
+import clases.Montecarlo;
 
 import java.awt.event.ActionListener;
 import java.awt.Font;
@@ -179,11 +180,23 @@ public class FrameSimulacion extends JFrame implements ActionListener {
 
         if (e.getSource() == btnInicar) {
 
+            calculos();
+
             Animacion animacion = new Animacion(this, metMontecarlo);
 
             animacion.start();
 
         }
+
+    }
+
+    private void calculos() {
+
+        Montecarlo montecarlo = new Montecarlo();
+
+        montecarlo.metodoMontecarlo();
+
+        metMontecarlo = montecarlo.getMetodoMontecarlo();
 
     }
 
