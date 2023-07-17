@@ -1,0 +1,13 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "d:\\Librerías Java\\commons-math3-3.6.1\\commons-math3-3.6.1.jar",
+        "d:\\Librerías Java\\commons-math3-3.6.1\\commons-math3-3.6.1-javadoc.jar",
+        "d:\\Librerías Java\\commons-math3-3.6.1\\commons-math3-3.6.1-sources.jar",
+        "d:\\Librerías Java\\commons-math3-3.6.1\\commons-math3-3.6.1-tests.jar",
+        "d:\\Librerías Java\\commons-math3-3.6.1\\commons-math3-3.6.1-test-sources.jar",
+        "d:\\Librerías Java\\commons-math3-3.6.1\\commons-math3-3.6.1-tools.jar"
+    ]
+}
