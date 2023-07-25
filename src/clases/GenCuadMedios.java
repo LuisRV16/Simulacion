@@ -23,6 +23,7 @@ public class GenCuadMedios {
         this.cantNum = cantNum;
 
         semillasAprob = new ArrayList<>();
+
     }
 
     public void generarNumeros(){
@@ -32,7 +33,10 @@ public class GenCuadMedios {
             long semilla = 0;
             
             NoCongruenciales generador = new NoCongruenciales(i);
+
             FlujoDeDatos archivDatos = new FlujoDeDatos(i);
+            
+            StringBuilder numeros = new StringBuilder();
 
             archivDatos.crearArchivo();
             archivDatos.iniciarLectorEscritor();
@@ -60,12 +64,18 @@ public class GenCuadMedios {
 
                 semilla = generador.getDgtsCentro();
 
-                archivDatos.escribir(generador.getRi());
+                numeros.append(generador.getRi());
+
+                if (j != cantNum-1) {
+                    numeros.append("\n");
+                }
 
                 generador.setX1(semilla);
                 generador.setX2(semilla);
 
             }
+
+            archivDatos.escribir(numeros.toString());
 
             archivDatos.concluirLecturaYEscritura();
 
